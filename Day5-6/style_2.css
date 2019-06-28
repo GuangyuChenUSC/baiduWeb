@@ -1,0 +1,11 @@
+h4, p {
+    margin:0 auto
+}
+h1 {
+    padding: 50px 30px 40% 30px;
+    margin: 0 20px 0 0;
+    border: 0;
+    float: left;
+    color: white;
+    background: lightskyblue;
+}
