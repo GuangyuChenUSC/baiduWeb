@@ -1,0 +1,21 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+.left,.right {
+    position: absolute;
+    top: 0;
+    width: 150px;
+}
+.left {
+    background-color: cornflowerblue;
+}
+.right {
+    right: 0;
+    background-color: cornflowerblue;
+}
+.mid {
+    margin: 0 ;
+    padding-left: 160px;
+    background-color: orangered;
+}

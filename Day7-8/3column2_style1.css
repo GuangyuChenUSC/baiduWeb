@@ -1,0 +1,21 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+.left,.mid {
+    position: absolute;
+    top: 0;
+    width: 150px;
+}
+.left {
+    left: 0;
+    background-color: cornflowerblue;
+}
+.mid {
+    left: 150px;
+    background-color: deepskyblue;
+}
+.right {
+    margin-left: 300px;
+    background-color: orangered;
+}

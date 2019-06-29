@@ -1,0 +1,21 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+.content {
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+    margin: 0 auto;
+}
+.left,.mid {
+    flex: 0 1 150px;
+    background-color: cornflowerblue;
+}
+.mid {
+    background-color:deepskyblue;
+}
+.right {
+    flex-grow: 2;
+    background-color: orangered;
+}

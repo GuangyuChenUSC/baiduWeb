@@ -1,0 +1,18 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+.container {
+    box-sizing: border-box;
+}
+.left {
+    float: left;
+    background-color: orangered;
+    width: calc(100% - 150px);
+}
+.right {
+    width: 150px;
+    background-color: cornflowerblue;
+    float: right;
+    box-sizing: border-box;
+}

@@ -1,0 +1,19 @@
+.container {
+    height: 100px;
+    align-items: flex-start;
+    flex-direction:row;
+    background-color: #99CC99;
+}
+.left {
+    background-color: #999966;
+}
+.right {
+    background-color: #CC0033;
+}
+/* 布局实现06 */
+.left {
+    width: 30%;
+}
+.right {
+    width: 70%;
+}

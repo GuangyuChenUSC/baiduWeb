@@ -1,0 +1,112 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+.header {
+    margin: 0 auto;
+    width: 100%;
+    height: 80px;
+    color: white;
+    background-color: dimgrey;
+}
+.logo {
+    float: left;
+    margin-left: 100px;
+    height: 80px;
+    font-size: 24px;
+    line-height: 80px;
+}
+.nav {
+    float: right;
+    margin-right: 20px;
+    height: 80px;
+    line-height: 80px;
+}
+.nav a {
+    display: inline-block;
+    top:0;
+    color: whitesmoke;
+    font-size: 12px;
+}
+.banner {
+    position: relative;
+    width: 100%;
+    height: 250px;
+    background-color: greenyellow;
+    opacity: 0.9;
+}
+.page1, .page2, .page3, .page4 {
+    position: absolute;
+    bottom: 10px;
+    width: 20px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    border: 1px solid #999999;
+    background-color: #EEEEEE;
+    opacity: 0.8;
+    cursor: pointer;
+}
+.page4 {
+    right: 200px;
+}
+.page3 {
+    right: 230px;
+}
+.page2 {
+    height:50px;
+    right: 260px;
+}
+.page1 {
+    right: 290px;
+}
+.main {
+    width: 100%;
+    height: 60px;
+    padding-left: 18%;
+    border-bottom: 1px solid #CCC;
+}
+.nav-home, .nav-profile, .nav-about {
+    float: left;
+    box-sizing: border-box;
+    margin-top: 16px;
+    width: 100px;
+    height: 45px;
+    text-align: center;
+    line-height: 45px;
+    border: 1px solid #CCCCCC;
+    border-bottom: none;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    background-color: #fff;
+    cursor: pointer;
+}
+.nav-profile, .nav-about {
+    background-color: #DDD;
+}
+.content {
+    margin: 10px auto;
+    width: 960px;
+}
+.row {
+    display: flex;
+}
+.cell {
+    flex: 1 1 auto;
+    box-sizing: border-box;
+    margin: 5px;
+    min-width: 200px;
+    height: 160px;
+    line-height: 160px;
+    text-align: center;
+    border: 1px solid #DDD;
+}
+.footer {
+    box-sizing: border-box;
+    padding-top: 20px;
+    width: 100%;
+    height: 120px;
+    color: #fff;
+    text-align: center;
+    background-color: #888888;
+}

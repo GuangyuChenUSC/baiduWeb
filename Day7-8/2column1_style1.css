@@ -1,0 +1,14 @@
+.left {
+    float: left;
+    background-color: cornflowerblue;
+    box-sizing: border-box;
+    width: 30%;
+    height: 100%;
+}
+.right {
+    float: right;
+    background-color: orangered;
+    box-sizing: border-box;
+    width: 70%;
+    height: 100%;
+}
