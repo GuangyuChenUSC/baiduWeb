@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>简历</title>
+    <style>
+        /* 头部 */
+        nav {
+            margin-left: 300px;
+            color: salmon;
+            background: aliceblue;
+            background-repeat: repeat-x;
+            border: 2px solid black;
+            border-color:salmon;
+        }
+        nav > h1 {
+            margin-top: 10px;
+            font-size: 36px;
+            font-weight: 200;
+            font-family:arial, Verdana, sans-serif;
+        }
+        nav > h2,h3,h4 {
+            margin-top: 15px;
+        }
+        nav > h2 {
+            text-shadow: 3px 3px 3px;
+        }
+        a {
+            outline: none;
+            text-decoration: none;
+            padding: 2px 1px 0;
+        }
+
+        a:link {
+            color: #265301;
+        }
+
+        a:visited {
+            color: #437A16;
+        }
+
+        a:focus {
+            border-bottom: 1px solid;
+            background: #BAE498;
+        }
+
+        a:hover {
+            border-bottom: 1px solid;
+            background: #CDFEAA;
+        }
+
+        a:active {
+            background: #265301;
+            color: #CDFEAA;
+        }
+        /* 正文 */
+        section{
+            width: 100%;
+            position: relative;
+        }
+        /*主要内容*/
+        li {
+            list-style-type: square;
+        }
+        .content{
+            position: absolute;
+            top: 0;
+            left: 300px;
+        }
+        .content > div{
+            margin-top: 15px;
+            margin-left: 15px;
+        }
+        .content > div > h3{
+            margin-top: 20px;
+            margin-bottom: 15px;
+            font-weight: 500;
+        }
+        .education > div{
+            text-indent: 15px;
+            margin-bottom: 10px;
+        }
+        .education > h3 {
+            text-decoration:underline;
+        }
+        .education .para{
+            font-size: 18px;
+        }
+        .jobExp > div > p{
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+        .jobExp > h3 {
+            text-decoration:underline;
+        }
+    </style>
+</head>
+<body>
+<!-- Header -->
+<header>
+    <nav>
+        <h1>张三</h1>
+        <h2>个人简历</h2>
+        <h3>手机：1588888888 邮箱：zhangsan@163.com</h3>
+        <h3><a href="https://github.com">个人GitHub</a></h3>
+        <h3><strong>求职意向:</strong> 前端开发</h3>
+    </nav>
+    </div>
+</header>
+
+<!-- Content -->
+<section>
+    <!-- MainContents -->
+    <div class="content" >
+        <div class="education">
+            <h3>教育背景</h3>
+            <div>
+                <p class="para">XXXX大学 硕士 2018-09 - 2021-06</p>
+                <p class="para">XXX专业</p>
+                <p class="para ">专业课程：XXXX, XXXX, XXXX, XXXX</p>
+
+                <p class="para">XXXX大学 本科 2014-09 - 2018-06</p>
+                <p class="para">XXX专业</p>
+                <p class="para ">专业课程：XXXX, XXXX, XXXX, XXXX</p>
+                <p class="subjects"></p>
+            </div>
+        </div>
+        <div class="jobExp">
+            <h3>项目经历</h3>
+            <div>
+                <p>基于Openflow和Mininet的SDN实现</p>
+                <ul>
+                    <li>实现基于POX的交换机，路由和防火墙功能；</li>
+                    <li>使用Python实现ARP和ICMP的功能。</li>
+                </ul>
+
+                <p>基于Unix Socket的AWS分布式计算模拟</p>
+                <ul>
+                    <li>设计客户端，监控端，AWS服务器，2个存储服务器和1个计算服务器在Unix上仿真云计算；</li>
+                    <li>设计客户端，监控端，AWS服务器，2个存储服务器和1个计算服务器在Unix上仿真云计算；</li>
+                    <li>实现分布式存储和计算的功能。</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer">
+            <a href="https://github.com" id="github">个人GitHub</a>
+        </div>
+    </div>
+</section>
+<script>
+    alert('点击个人GitHub，会跳转哦');
+    document.getElementById("github").onclick = function(){
+        window.alert("再点一次试试")
+        window.alert("退出吧")
+    }
+</script>
+</body>
+</html>
