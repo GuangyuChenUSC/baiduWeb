@@ -6,7 +6,7 @@
 </head>
 <style>
     table {
-        width:8000px;
+        width:800px;
     }
     table td{
         border:1px solid dimgrey;
@@ -14,16 +14,25 @@
     }
 </style>
 <body>
+<table border="1">
+    <tbody id="tbody"></tbody>
+</table>
 <script>
-    var product;
-    document.write("<table>");
-    for (var i = 1; i <= 9; i++) {
-        for (var j = 1; j <= 9; j++) {
-            product = i * j;
-            document.write("<td>" + i + " * " + j + " = " + product + "</td>");
+    var tb = document.getElementById("tbody");
+    var arr = [];
+    var table='';
+    for (i=1;i<=9;i++) {
+        var ans='';
+        for (j=1;j<=i;j++) {
+            result=i*j;
+            arr.push(i+' * '+j+' = '+result+' ');
+            ans += '<td>'+i+' * '+j+' = '+result+'</td>';
         }
+        table+='<tr>'+ans+'</tr>'
+        arr.push('\n');
     }
-    document.write("</table>")
+    console.log(arr.join(''));
+    tb.innerHTML = table;
 </script>
 </body>
 </html>
