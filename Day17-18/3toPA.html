@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3toPA</title>
+</head>
+<body>
+<script>
+    function trans(){
+        var nums = new Array();
+        for (var i = 0; i < 100; i++) {
+            nums[i] = i + 1;
+        }
+        for (var i = 0; i < nums.length; i++) {
+            if (nums[i] % 3 == 0 || (nums[i].toString()).indexOf('3') == 1)
+                nums[i] = "PA";
+        }
+        console.log(nums.join());
+    }
+    trans();
+</script>
+</body>
+</html>

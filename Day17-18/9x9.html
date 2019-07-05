@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="zn_ch">
+<head>
+    <meta charset="UTF-8">
+    <title>99乘法表</title>
+</head>
+<style>
+    table {
+        width:8000px;
+    }
+    table td{
+        border:1px solid dimgrey;
+        text-align: center;
+    }
+</style>
+<body>
+<script>
+    var product;
+    document.write("<table>");
+    for (var i = 1; i <= 9; i++) {
+        for (var j = 1; j <= 9; j++) {
+            product = i * j;
+            document.write("<td>" + i + " * " + j + " = " + product + "</td>");
+        }
+    }
+    document.write("</table>")
+</script>
+</body>
+</html>

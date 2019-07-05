@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zn_ch">
+<head>
+    <meta charset="UTF-8">
+    <title>根据时间输出问候语</title>
+</head>
+<body>
+    <button id = "time">问候</button>
+    <p id = "greeting"></p>
+    <script>
+        document.getElementById("time").onclick = function () {
+            var x = "";
+            var time = new Date().getHours();
+            if (time >= 6 && time <= 11)
+                x = "早上好！";
+            else if (time > 11 && time < 14)
+                x = "中午好！";
+            else if (time >= 14 && time <= 18)
+                x = "下午好！";
+            else
+                x = "晚上好！";
+            document.getElementById("greeting").innerHTML = x;
+        }
+    </script>
+</body>
+</html>
