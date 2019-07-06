@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>input</title>
+</head>
+<body>
+    <input id="name" type="text">
+    <button id="submit-btn">Submit</button>
+    <script>
+        var btn = document.getElementById("submit-btn");
+        btn.onclick = function () {
+            var input = document.getElementById("name").value;
+            console.log(input);
+        }
+        document.onkeydown = function(){
+            if(event.keyCode === 13){
+                var inputText = document.getElementById('name').value;
+                console.log(inputText);
+            }
+            if(event.keyCode === 27){
+                var inputText = document.getElementById('name');
+                inputText.value = "";
+                inputText.focus();
+            }
+        }
+    </script>
+</body>
+</html>

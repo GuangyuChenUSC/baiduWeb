@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS Sprite</title>
+    <style>
+        div{
+            width: 480px;
+            height: 480px;
+            background: url("erik.jpg");
+        }
+    </style>
+</head>
+<body>
+    <div id="test"></div>
+    <script>
+        window.onload = function () {
+            var test = document.getElementById("test");
+            var y = 480;
+            function gif() {
+                test.style.backgroundPositionY = '-' + y + 'px';
+                y > 8160 ? y = 480 : y += 480;
+            }
+            setInterval(gif, 100);
+        }
+    </script>
+</body>
+</html>
