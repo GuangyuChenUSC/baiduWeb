@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>时钟</title>
+</head>
+<body>
+<p id = "date1"></p>
+<p id = "date2"></p>
+<script>
+    var date1 = document.getElementById("date1");
+    var date2 = document.getElementById("date2");
+    //第一种星期显示格式
+    function getWeekday1(weekday) {
+        switch (weekday) {
+            case 0:
+                weekday = "星期日";
+                break;
+            case 1:
+                weekday = "星期一";
+                break;
+            case 2:
+                weekday = "星期二";
+                break;
+            case 3:
+                weekday = "星期三";
+                break;
+            case 4:
+                weekday = "星期四";
+                break;
+            case 5:
+                weekday = "星期五";
+                break;
+            case 6:
+                weekday = "星期六";
+                break;
+        }
+        return weekday;
+    }
+    //第二种星期显示格式
+    function getWeekday2(weekday) {
+        switch (weekday) {
+            case 0:
+                weekday = "Sunday";
+                break;
+            case 1:
+                weekday = "Monday";
+                break;
+            case 2:
+                weekday = "Tuesday";
+                break;
+            case 3:
+                weekday = "Wednesday";
+                break;
+            case 4:
+                weekday = "Thursday";
+                break;
+            case 5:
+                weekday = "Friday";
+                break;
+            case 6:
+                weekday = "Saturday";
+                break;
+        }
+        return weekday;
+    }
+    //作为补零函数
+    function addZero(a) {
+        if (a < 10) {
+            a = "0" + a;
+        }
+        return a;
+    }
+    //判断时间超过12点就-12
+    function changeHour(hour) {
+        if (hour > 12) {
+            hour = hour - 12;
+        }
+        return hour;
+    }
+    //第一种时钟显示格式
+    function startTime1() {
+        var newdate = new Date(); //获取时间要写在内部 不然只是获取加载时的第一次日期对象，并不更新
+        var year = newdate.getFullYear();
+        var month = newdate.getMonth() + 1;
+        var mon = addZero(month);
+        var day = newdate.getDate();
+        var d = addZero(day);
+        var hour = newdate.getHours();
+        var minute = newdate.getMinutes();
+        var second = newdate.getSeconds();
+        var h = addZero(hour);
+        var m = addZero(minute);
+        var s = addZero(second);
+        date1.innerHTML = year + "年" + mon + "月" + d + "日" + h + ":" + m + ":" + s;
+        t = setTimeout("startTime1()", 500); //第一种调用函数
+    }
+    //第二种时钟显示格式
+    function startTime2() {
+        var newdate = new Date(); //获取时间要写在内部 不然只是获取加载时的第一次日期对象，并不更新
+        var year = newdate.getFullYear();
+        var month = newdate.getMonth() + 1;
+        var mon = addZero(month);
+        var day = newdate.getDate();
+        var d = addZero(day);
+        var weekday = getWeekday2(newdate.getDay());
+        var hour = newdate.getHours();
+        var minute = newdate.getMinutes();
+        var second = newdate.getSeconds();
+        var h = addZero(changeHour(hour));
+        var m = addZero(minute);
+        var s = addZero(second);
+        if (hour < 12) {
+            date2.innerHTML = year + "-" + mon + "-" + d + " " + weekday + " " + h + ":" + m + ":" + s + " " +
+                "AM";
+        } else {
+            date2.innerHTML = year + "-" + mon + "-" + d + " " + weekday + " " + h + ":" + m + ":" + s + " " +
+                "PM";
+        }
+        t = setTimeout(startTime2, 500); //第二种调用函数
+    }
+    //调用第一种时钟显示
+    startTime1();
+    //调用第二种时钟显示
+    startTime2();
+</script>
+</body>
+
+</html>
