@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Email</title>
+    <style>
+        #email-input {
+            width: 200px;
+        }
+        #email-sug-wrapper {
+            width: 200px;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+            border: 1px solid dimgrey;
+            color: dimgrey;
+        }
+        li:hover {
+            background: cornflowerblue;
+        }
+        .selected {
+            background: pink;
+        }
+        .hide {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+    <input id="email-input" type="text">
+    <ul id="email-sug-wrapper" class="email-sug"></ul>
+</div>
+<script>
+    var postfixList = ['163.com', 'gmail.com', '126.com', 'qq.com', '263.net'];
+    var ipt = document.querySelector("#email-input");
+    var ul = document.querySelector("#email-sug-wrapper");
+    var result = "";
+    var nowSelectedIndex = 0;
+
+    ipt.oninput = function () {
+        addToUl();
+        control();
+    };
+
+    //获取用户输入
+    function getValue() {
+        var text = ipt.value;
+        result = text.trim();
+        return result;
+    }
+
+    //生成提示框中的提示内容
+    function createLi() {
+        getValue();
+        ul.innerHTML = "";
+        arr1 = [];
+        var text = "";
+        var matchStr = "";
+        for (var i = 0; i < postfixList.length; i++) {
+            if (result.indexOf("@") === -1) {
+                text = result + "@" + postfixList[i];
+                var li = document.createElement("li");
+                li.textContent = transCode(text);
+                arr1.push(li);
+            } else {
+                matchStr = result.slice(result.indexOf("@") + 1);
+                if (postfixList[i].indexOf(matchStr) === 0) {
+                    text = result.slice(0, result.indexOf("@")) + "@" + postfixList[i];
+                    var li = document.createElement("li");
+                    li.textContent = transCode(text);
+                    arr1.push(li);
+                }
+            }
+        }
+        return arr1;
+    }
+
+    function transCode(str) {
+        if (str.length === 0) return "";
+        var s = str.replace(/&/g, "&");
+        s = s.replace(/</g, "<");
+        s = s.replace(/>/g, ">");
+        s = s.replace(/ /g, " ");
+        s = s.replace(/'/g, "'");
+        s = s.replace(/"/g, '"');
+        return s;
+    }
+
+    //将提示内容添加到email-sug-wrapper中
+    function addToUl() {
+        createLi();
+        for (var i = 0; i < arr1.length; i++) {
+            ul.appendChild(arr1[i]);
+        }
+        select();
+        ul.onclick = choose;
+    }
+
+    //控制email-sug-wrapper的显示/隐藏状态
+    function control() {
+        getValue();
+        result ? show() : hide();
+    }
+
+    // 隐藏提示框
+    function hide() {
+        ul.classList.add("hide");
+    }
+
+    // 显示提示框
+    function show() {
+        ul.classList.remove("hide");
+    }
+
+    function choose(ev) {
+        var target = ev.target;
+        if (target.nodeName.toLocaleLowerCase() === "li") {
+            ipt.value = target.textContent;
+        }
+        ipt.focus();
+        hide();
+    }
+
+    // 设置第一项为默认选中项
+    function select() {
+        var lis = document.querySelectorAll("li");
+        if (lis[nowSelectedIndex]) {
+            lis[nowSelectedIndex].classList.add("selected");
+        }
+    }
+
+    ipt.focus();
+    window.addEventListener("keydown", keyBoardChoose);
+    function keyBoardChoose(e) {
+        var lis = document.querySelectorAll("li");
+        //下 上
+        if (e.keyCode === 38 || e.keyCode === 40) {
+            e.preventDefault()
+        }
+        if (!ul.classList.contains("hide") && lis.length) {
+            //下
+            if (e.keyCode === 38) {
+                e.preventDefault();
+                if (nowSelectedIndex === 0) {
+                    nowSelectedIndex = lis.length - 1;
+                }
+                else {
+                    nowSelectedIndex -= 1;
+                }
+                // 重新渲染提示框
+                addToUl();
+            }
+            //上
+            else if (e.keyCode === 40) {
+                e.preventDefault();
+                if (nowSelectedIndex === lis.length - 1) {
+                    nowSelectedIndex = 0;
+                }
+                else {
+                    nowSelectedIndex += 1;
+                }
+                // 重新渲染提示框
+                addToUl();
+            }
+            //回车
+            else if (e.keyCode === 13) {
+                var text = lis[nowSelectedIndex].textContent;
+                ipt.value = transCode(text);
+                hide();
+            }
+            //Esc
+            else if (e.keyCode === 27) {
+                ipt.select();
+            }
+            else {
+                nowSelectedIndex = 0;
+                select();
+            }
+        }
+        else {
+            nowSelectedIndex = 0;
+            select();
+        }
+    }
+</script>
+</body>
+</html>
