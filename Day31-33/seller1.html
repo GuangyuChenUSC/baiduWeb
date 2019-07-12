@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>我是精明的小卖家</title>
+    <style>
+        input {
+            margin-left: 20px;
+        }
+
+        table {
+            border-collapse: collapse;
+        }
+
+        td, th {
+            width: 100px;
+            height: 20px;
+            border: 1px solid #000;
+            text-align: center;
+        }
+        #region-wrapper, #product-wrapper {
+            display: inline-block;
+            width: 350px;
+            height: 100px
+        }
+        h4{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<h1></h1>
+<div id="region-wrapper">
+    <h4>请选择地区</h4>
+</div>
+<div id="product-wrapper">
+    <h4>请选择产品</h4>
+</div>
+<div id="table-wrapper"></div>
+
+<script src="ife31data.js"></script>
+<script src="checkbox.js"></script>
+<script src="getData.js"></script>
+<script src="table.js"></script>
+<script src="changePos.js"></script>
+<script src="merge.js"></script>
+<script>
+    createCheckbox(items1, regionCheck, "region");
+    createCheckbox(items2, productCheck, "product");
+    getData();
+    createTable();
+    merge(1, 0);
+    choose(regionCheck, "region");
+    choose(productCheck, "product");
+    regionCheck.addEventListener("click", getData);
+    regionCheck.addEventListener("click", createTable);
+    regionCheck.addEventListener("click", changePos);
+    regionCheck.addEventListener("click", function () {merge(1, 0);});
+
+    productCheck.addEventListener("click", getData);
+    productCheck.addEventListener("click", createTable);
+    productCheck.addEventListener("click", changePos);
+    productCheck.addEventListener("click", function () {merge(1, 0);});
+</script>
+</body>
+</html>
